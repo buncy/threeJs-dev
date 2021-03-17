@@ -51,6 +51,7 @@ camera.lookAt(group.position);
 scene.add(camera);
 //Controls
 const controls = new OrbitControls(camera, canvas);
+controls.enableDamping = true;
 // Renderer
 const renderer = new THREE.WebGLRenderer({
   canvas: document.querySelector("canvas.webGL"),
@@ -65,6 +66,7 @@ const timeElapsed = clock.getElapsedTime();
 // gsap.to(cube1.position, { duration: 1, delay: 2, x: 0 });
 const tick = () => {
   //cube1.rotation.z += -0.01;
+  controls.update();
   renderer.render(scene, camera);
   window.requestAnimationFrame(tick);
 };
