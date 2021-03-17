@@ -1,10 +1,11 @@
 import "./style.css";
 import * as THREE from "three";
 import gsap from "gsap";
+import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 
 // Scene
 const scene = new THREE.Scene();
-
+const canvas = document.querySelector(".webGL");
 // Object
 const group = new THREE.Group();
 scene.add(group);
@@ -48,7 +49,8 @@ const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height);
 camera.position.z = 4;
 camera.lookAt(group.position);
 scene.add(camera);
-
+//Controls
+const controls = new OrbitControls(camera, canvas);
 // Renderer
 const renderer = new THREE.WebGLRenderer({
   canvas: document.querySelector("canvas.webGL"),
@@ -59,8 +61,8 @@ renderer.setSize(sizes.width, sizes.height);
 const clock = new THREE.Clock();
 const timeElapsed = clock.getElapsedTime();
 //animation
-gsap.to(cube1.position, { duration: 1, delay: 1, x: -2 });
-gsap.to(cube1.position, { duration: 1, delay: 2, x: 0 });
+// gsap.to(cube1.position, { duration: 1, delay: 1, x: -2 });
+// gsap.to(cube1.position, { duration: 1, delay: 2, x: 0 });
 const tick = () => {
   //cube1.rotation.z += -0.01;
   renderer.render(scene, camera);
