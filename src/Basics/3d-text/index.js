@@ -2,9 +2,9 @@ import "../../style.css";
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import * as dat from "dat.gui";
-import mat1 from "../../../static/textures/matcaps/6.png";
-import mat2 from "../../../static/textures/matcaps/6.png";
-import font from "../../../static/font/helvetiker_regular.typeface.json";
+// import mat1 from "../../../static/textures/matcaps/6.png";
+// import mat2 from "../../../static/textures/matcaps/6.png";
+// import font from "../../../static/font/helvetiker_regular.typeface.json";
 export default () => {
   /**
    * Base
@@ -26,16 +26,16 @@ export default () => {
    * Textures
    */
   const textureLoader = new THREE.TextureLoader();
-  // const matcapTextures = textureLoader.load("/textures/matcaps/6.png");
-  // const donutMatcapTextures = textureLoader.load("/textures/matcaps/5.png");
-  const matcapTextures = textureLoader.load(mat1);
-  const donutMatcapTextures = textureLoader.load(mat2);
+  const matcapTextures = textureLoader.load("./textures/matcaps/6.png");
+  const donutMatcapTextures = textureLoader.load("./textures/matcaps/5.png");
+  // const matcapTextures = textureLoader.load(mat1);
+  // const donutMatcapTextures = textureLoader.load(mat2);
 
   //Fonts
 
   const fontLoader = new THREE.FontLoader();
-  // fontLoader.load("/font/helvetiker_regular.typeface.json", (font) => {
-  fontLoader.load(font, (font) => {
+  fontLoader.load("./font/helvetiker_regular.typeface.json", (font) => {
+    // fontLoader.load(font, (font) => {
     const textGeometry = new THREE.TextGeometry("karthik", {
       font: font,
       size: 0.5,
