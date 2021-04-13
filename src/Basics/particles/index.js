@@ -25,6 +25,39 @@ export default function particles() {
   //Particles
 
   //geometry
+
+  //sphere
+  const sphereParticles = new THREE.SphereGeometry(1, 32, 32);
+
+  const sphereMaterial = new THREE.PointsMaterial({
+    sizeAttenuation: true,
+    size: 0.02,
+    //vertexColors: true,
+    color: "yellow",
+    transparent: true,
+    alphaMap: particlesTextures,
+    depthWrite: false,
+    blending: THREE.AdditiveBlending,
+  });
+  const points = new THREE.Points(sphereParticles, sphereMaterial);
+  scene.add(points);
+
+  //cube
+  const cubeParticles = new THREE.BoxGeometry(2, 2, 2, 20, 20, 20);
+  const cubeMaterial = new THREE.PointsMaterial({
+    sizeAttenuation: true,
+    size: 0.02,
+    //vertexColors: true,
+    color: "blue",
+    transparent: true,
+    alphaMap: particlesTextures,
+    depthWrite: false,
+    blending: THREE.AdditiveBlending,
+  });
+  const cubePoints = new THREE.Points(cubeParticles, cubeMaterial);
+  scene.add(cubePoints);
+
+  //particles
   const particlesGeometry = new THREE.BufferGeometry();
   const count = 50000;
   const positions = new Float32Array(count * 3);
@@ -112,6 +145,11 @@ export default function particles() {
   const tick = () => {
     const elapsedTime = clock.getElapsedTime();
 
+    //update sphere
+    sphereParticles.rotateY(Math.PI / 10000 + 1);
+    //update cube
+    cubeParticles.rotateX(0.01 + 0.000001);
+    cubeParticles.rotateZ(0.01 + 0.000001);
     //Update particles
     // particles.rotation.y = elapsedTime * 0.2;
 
