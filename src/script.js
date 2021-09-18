@@ -5,6 +5,7 @@ import lights from "./Basics/lights";
 import hauntedHouse from "./Basics/haunted-house";
 import particles from "./Basics/particles";
 import raycaster from "./Basics/raycaster";
+import physics from "./Basics/physics"
 
 //intro();
 //materials();
@@ -12,4 +13,5 @@ import raycaster from "./Basics/raycaster";
 //lights();
 //hauntedHouse();
 //particles();
-raycaster()
+//raycaster()
+physics()
